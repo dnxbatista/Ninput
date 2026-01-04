@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ninput.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Modifier" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Key" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">75</Value>
+    </Setting>
+    <Setting Name="KeyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ALT + K</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

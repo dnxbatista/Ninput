@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Ninput"
         mc:Ignorable="d"
         Title="Ninput" Height="100" Width="300"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

@@ -9,13 +9,15 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="#01000000"
-        WindowState="Maximized"
+        WindowState="Normal"
         Topmost="True"
         ShowInTaskbar="False">
     <Grid>
         <TextBlock Text="Input Blocked" 
-                   Foreground="White"
+                   Foreground="Black"
                    VerticalAlignment="Bottom"
-                   HorizontalAlignment="Right"/>
+                   HorizontalAlignment="Right"
+                   Padding="15"
+                   Background="AliceBlue"/>
     </Grid>
 </Window>

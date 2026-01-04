@@ -45,6 +45,12 @@ namespace Ninput
             else if (cbKey.Text == "F1") SelectedKey = 0x70u;
 
             KeyName = $"{cbModifier.Text} + {cbKey.Text}";
+
+            Properties.Settings.Default.Modifier = SelectedModifier;
+            Properties.Settings.Default.Key = SelectedKey;
+            Properties.Settings.Default.KeyName = KeyName;
+            Properties.Settings.Default.Save();
+
             this.DialogResult = true;
         }
     }

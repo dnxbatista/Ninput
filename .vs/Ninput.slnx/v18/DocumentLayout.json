@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{B25BEEDE-DA7D-19AC-97FB-A333734557CA}|Ninput\\Ninput.csproj|c:\\users\\danie\\onedrive\\documentos\\projects\\ninput\\ninput\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B25BEEDE-DA7D-19AC-97FB-A333734557CA}|Ninput\\Ninput.csproj|solutionrelative:ninput\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B25BEEDE-DA7D-19AC-97FB-A333734557CA}|Ninput\\Ninput.csproj|c:\\users\\danie\\onedrive\\documentos\\projects\\ninput\\ninput\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{B25BEEDE-DA7D-19AC-97FB-A333734557CA}|Ninput\\Ninput.csproj|solutionrelative:ninput\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\OneDrive\\Documentos\\Projects\\Ninput\\Ninput\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Ninput\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\danie\\OneDrive\\Documentos\\Projects\\Ninput\\Ninput\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Ninput\\MainWindow.xaml.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowFoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T16:54:59.407Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

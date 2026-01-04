@@ -11,6 +11,8 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using Forms = System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Ninput
 {
@@ -25,16 +27,14 @@ namespace Ninput
         [DllImport("user32.dll")]
         internal static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
-        private const int HOTKEY_ID = 9000;
-        private const uint MOD_ALT = 0x0001; 
-        private const uint VK_K = 0x4B;      
+        private const int HOTKEY_ID = 9000;  
         private const int WM_HOTKEY = 0x0312;
 
-        private OverlayWindow _overlay;
+        private List<OverlayWindow> _overlays = new List<OverlayWindow>();
         private bool _isBlocked = false;
 
-        private uint currentModifier = 0x0001;
-        private uint currentKey = 0x4B;      
+        private uint _currentModifier = 0x0001;
+        private uint _currentKey = 0x4B;
 
         public MainWindow()
         {
@@ -45,11 +45,15 @@ namespace Ninput
         {
             base.OnSourceInitialized(e);
 
+            _currentModifier = Properties.Settings.Default.Modifier;
+            _currentKey = Properties.Settings.Default.Key;
+            InputName.Text = Properties.Settings.Default.KeyName;
+
             IntPtr handle = new WindowInteropHelper(this).Handle;
             HwndSource source = HwndSource.FromHwnd(handle);
             source.AddHook(HwndHook);
 
-            RegisterHotKey(handle, HOTKEY_ID, MOD_ALT, VK_K);
+            RegisterHotKey(handle, HOTKEY_ID, _currentModifier, _currentKey);
         }
 
         private IntPtr HwndHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled) 
@@ -67,16 +71,51 @@ namespace Ninput
         {
             _isBlocked = !_isBlocked;
 
-            if (_isBlocked) 
+            if (_isBlocked)
             {
-                _overlay = new OverlayWindow();
-                _overlay.Show();
-                this.Title = "Ninput: INPUT DISABLED";
+                foreach (var screen in Forms.Screen.AllScreens) 
+                {
+                    var overlay = new OverlayWindow
+                    {
+                        WindowStartupLocation = WindowStartupLocation.Manual,
+                        WindowStyle = WindowStyle.None,
+                        ResizeMode = ResizeMode.NoResize,
+                        Topmost = true
+                    };
+
+                    var workingArea = screen.Bounds;
+
+                    var source = PresentationSource.FromVisual(this);
+                    double dpiX = 1.0, dpiY = 1.0;
+                    if (source?.CompositionTarget != null) 
+                    {
+                        dpiX = source.CompositionTarget.TransformToDevice.M11;
+                        dpiY = source.CompositionTarget.TransformToDevice.M22;
+                    }
+
+                    overlay.Left = workingArea.X / dpiX;
+                    overlay.Top = workingArea.Y / dpiY;
+                    overlay.Width = workingArea.Width / dpiX;
+                    overlay.Height = workingArea.Height / dpiY;
+
+                    overlay.Show();
+
+                    // Brute force this shit
+                    overlay.Activate();
+                    overlay.Topmost = true; 
+
+                    _overlays.Add(overlay);
+                }
+                this.WindowState = WindowState.Minimized;
             }
             else
             {
-                _overlay?.Close();
-                this.Title = "Ninput";
+                foreach (var overlay in _overlays) 
+                {
+                    overlay.CanClose = true;
+                    overlay.Close();
+                }
+                _overlays.Clear();
             }
         }
 
@@ -97,10 +136,10 @@ namespace Ninput
                 IntPtr handle = new WindowInteropHelper(this).Handle;
                 UnregisterHotKey(handle, HOTKEY_ID);
 
-                currentModifier = settings.SelectedModifier;
-                currentKey = settings.SelectedKey;
+                _currentModifier = settings.SelectedModifier;
+                _currentKey = settings.SelectedKey;
 
-                RegisterHotKey(handle, HOTKEY_ID, currentModifier, currentKey);
+                RegisterHotKey(handle, HOTKEY_ID, _currentModifier, _currentKey);
 
                 InputName.Text = $"Keys: {settings.KeyName}";
             }

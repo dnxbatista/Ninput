@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +20,22 @@ namespace Ninput
     /// </summary>
     public partial class OverlayWindow : Window
     {
+        public bool CanClose { get; set; } = false;
+
         public OverlayWindow()
         {
             InitializeComponent();
+
+            this.Deactivated += (s, e) => { if (!CanClose) this.Activate(); this.Topmost = true; };
         }
 
-        private void Window_Deactivated(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            if (this.IsLoaded)
+            if (!CanClose)
             {
-                this.Activate();
+                e.Cancel = true;
             }
+            base.OnClosing(e);
         }
     }
 }
