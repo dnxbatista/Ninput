@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninput - Advanced Input Blocker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            min-height: 100vh;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+        }
+        .btn-download {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <nav class="flex justify-between items-center mb-16 px-6 py-4 glass">
+            <div class="flex items-center gap-3">
+                <img src="Ninput.png" alt="Logo" class="w-10 h-10 rounded-lg">
+                <span class="text-2xl font-bold tracking-tight">Ninput</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="#features" class="hover:text-purple-200 transition">Features</a>
+                <a href="#setup" class="hover:text-purple-200 transition">Setup</a>
+            </div>
+        </nav>
+
+        <header class="text-center mb-24 flex flex-col items-center">
+            <img src="Ninput.png" alt="Ninput Logo" class="w-32 h-32 md:w-48 md:h-48 mb-8 drop-shadow-2xl animate-pulse">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">Block your input with security.</h1>
+            <p class="text-xl md:text-2xl text-purple-100 mb-10 max-w-2xl leading-relaxed">
+                Ninput is a powerful open-source utility for Windows that lets you instantly disable keyboard and mouse for cleaning, pets, or privacy.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4">
+                <a href="https://github.com/dnxbatista/Ninput/releases/download/Stable/Ninput-R1.0.zip" class="btn-download bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Download Latest
+                </a>
+                <a href="https://github.com/dnxbatista/Ninput" target="_blank" class="btn-download bg-black text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-github"></i> View Source Code
+                </a>
+            </div>
+        </header>
+
+        <section id="features" class="grid md:grid-cols-3 gap-8 mb-24">
+            <div class="glass p-8">
+                <div class="bg-purple-500 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-keyboard text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Total Lockdown</h3>
+                <p class="text-purple-100">Completely disables mouse and keyboard inputs, preventing accidental commands and blocking Alt+Tab usage.</p>
+            </div>
+            <div class="glass p-8">
+                <div class="bg-blue-500 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-terminal text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Custom Keybinds</h3>
+                <p class="text-purple-100">Configure your own unique key combinations to activate or deactivate the block instantly.</p>
+            </div>
+            <div class="glass p-8">
+                <div class="bg-indigo-500 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-desktop text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Multi-Monitor</h3>
+                <p class="text-purple-100">Full support for multi-monitor setups, ensuring that windows stay hidden and inputs remain blocked across all screens.</p>
+            </div>
+        </section>
+
+        <section id="setup" class="glass p-8 md:p-12 mb-24 text-center md:text-left">
+            <h2 class="text-3xl font-bold mb-8 flex items-center justify-center md:justify-start gap-3">
+                <i class="fa-solid fa-gears text-purple-300"></i> Quick Setup
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <div class="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center font-bold mx-auto md:mx-0">1</div>
+                    <h4 class="font-bold">Extract</h4>
+                    <p class="text-purple-50/80">Unzip the downloaded folder to your preferred location.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center font-bold mx-auto md:mx-0">2</div>
+                    <h4 class="font-bold">Launch</h4>
+                    <p class="text-purple-50/80">Run <strong>Ninput.exe</strong>. Grant administrator permissions if requested.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center font-bold mx-auto md:mx-0">3</div>
+                    <h4 class="font-bold">Configure</h4>
+                    <p class="text-purple-50/80">Set your activation shortcuts and you're ready to go!</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pb-16 opacity-80">
+            <p class="mb-4">Made with ❤️ by Daniel Albuquerque</p>
+            <div class="flex justify-center gap-6 text-sm">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-scale-balanced"></i> GNU GPLv3 License</span>
+                <span>•</span>
+                <a href="https://github.com/dnxbatista/Ninput" class="underline hover:text-white transition">GitHub Repository</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

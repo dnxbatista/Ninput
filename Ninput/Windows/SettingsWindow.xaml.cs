@@ -38,7 +38,7 @@ namespace Ninput
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            SelectedModifier = (cbModifier.Text == "ALT") ? 0x0001u : 0x0002u; // 0x0002 é CTRL
+            SelectedModifier = (cbModifier.Text == "ALT") ? 0x0001u : 0x0002u;
 
             if (cbKey.Text == "K") SelectedKey = 0x4Bu;
             else if (cbKey.Text == "L") SelectedKey = 0x4Cu;
