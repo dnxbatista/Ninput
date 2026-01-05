@@ -8,7 +8,20 @@
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon>Assets\Ninput.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Ninput.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Ninput.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Ninput.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

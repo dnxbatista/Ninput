@@ -47,7 +47,7 @@ namespace Ninput
 
             _currentModifier = Properties.Settings.Default.Modifier;
             _currentKey = Properties.Settings.Default.Key;
-            InputName.Text = Properties.Settings.Default.KeyName;
+            InputName.Text = $"Keys: {Properties.Settings.Default.KeyName}";
 
             IntPtr handle = new WindowInteropHelper(this).Handle;
             HwndSource source = HwndSource.FromHwnd(handle);
@@ -73,6 +73,8 @@ namespace Ninput
 
             if (_isBlocked)
             {
+                this.Hide();
+
                 foreach (var screen in Forms.Screen.AllScreens) 
                 {
                     var overlay = new OverlayWindow
@@ -106,10 +108,11 @@ namespace Ninput
 
                     _overlays.Add(overlay);
                 }
-                this.WindowState = WindowState.Minimized;
             }
             else
             {
+                this.Show();
+
                 foreach (var overlay in _overlays) 
                 {
                     overlay.CanClose = true;
@@ -124,6 +127,16 @@ namespace Ninput
             IntPtr handle = new WindowInteropHelper(this).Handle;
             UnregisterHotKey(handle, HOTKEY_ID);
             base.OnClosed(e);
+        }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            if(_isBlocked && this.WindowState != WindowState.Minimized) 
+            {
+                this.Hide();
+            }
+
+            base.OnStateChanged(e);
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)

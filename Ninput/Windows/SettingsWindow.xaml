@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninput"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="200" Width="250"
+        Title="Settings" Height="220" Width="290"
         WindowStartupLocation="CenterOwner">
-    <StackPanel Margin="20">
+    <StackPanel Margin="20" Width="Auto" Height="Auto">
         <TextBlock Text="Modifier:"/>
         <ComboBox x:Name="cbModifier" Margin="0,5,0,10"/>
 

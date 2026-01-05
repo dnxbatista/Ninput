@@ -14,7 +14,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Margin="15" Content="Settings" Click="BtnSettings_Click"/>
+        <Button x:Name="SettingsButton" 
+                Grid.Column="0" 
+                Margin="15" 
+                Content="Settings" 
+                Click="BtnSettings_Click" />
 
         <StackPanel Grid.Column="2" 
                     VerticalAlignment="Center"
