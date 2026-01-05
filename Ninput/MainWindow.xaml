@@ -5,23 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninput"
         mc:Ignorable="d"
-        Title="Ninput" Height="100" Width="300">
+        Title="Ninput" Height="100" Width="300"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <Button Margin="15" Content="Block Input"/>
 
-        <Button Grid.Column="1" Margin="15" Content="Settings"/>
+        <Button x:Name="SettingsButton" 
+                Grid.Column="0" 
+                Margin="15" 
+                Content="Settings" 
+                Click="BtnSettings_Click" />
 
         <StackPanel Grid.Column="2" 
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Input: Enabled"/>
-            <TextBlock Text="Keys: CTRL +"/>
+            <TextBlock x:Name="InputStatus" Text="Input: Enabled"/>
+            <TextBlock x:Name="InputName" Text="Keys: ALT + K"/>
         </StackPanel>
     </Grid>
 </Window>

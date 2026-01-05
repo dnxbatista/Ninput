@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ninput.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ninput"
+        mc:Ignorable="d"
+        Title="Settings" Height="220" Width="290"
+        WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="20" Width="Auto" Height="Auto">
+        <TextBlock Text="Modifier:"/>
+        <ComboBox x:Name="cbModifier" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Key:"/>
+        <ComboBox x:Name="cbKey" Margin="0,5,0,10"/>
+
+        <Button Content="Save" Click="BtnSave_Click" Padding="10,5"/>
+    </StackPanel>
+</Window>
